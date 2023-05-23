@@ -4,7 +4,7 @@
 def printFun(test):
     #global i #brother no sé como funciona esta cosa, no sé python
     #i=i+1
-    if test < 1:
+    if test < 1: #caso base, es para saber cuando detenerse
         return
     else:
         print(test)
