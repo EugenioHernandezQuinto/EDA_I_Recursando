@@ -1,0 +1,1 @@
+#mi intención es evitar listas, y así no tener que poner lo que pusoi este manto para quitar las llaves, y evitar hacerla de cadenas. Y en lugar de usar (::1) para regresar la lista al reves mejor usar ingenio
