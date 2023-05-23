@@ -1,4 +1,6 @@
-#mi intención es evitar listas, y así no tener que poner lo que pusoi este manto para quitar las llaves, y evitar hacerla de cadenas. Y en lugar de usar (::1) para regresar la lista al reves mejor usar ingenio. Aunque esto implique quitar los casos bases...?
+#mi intención es evitar listas, y así no tener que poner lo que puso este manto para quitar las llaves, y evitar hacerla de cadenas. Y en lugar de usar (::1) para regresar la lista al reves mejor usar ingenio. Aunque esto implique quitar los casos bases...?
+#lo que pasa es que yo no siento que esos sean casos base, al menos de lo que voy entendiendo que es un caso base, lo que quiero es hacerlo al menos más explícito, aunque no creo que lo logre
+
 def fibonacci_inverso(n): #trabajamos con listas
                           #no usamos recursión
     if n <= 0: #basicamente dice: quiero 0 elementos de la serie de Fibonacci, aunque aquí se le agregó para cuando da un número negativo, ñe
