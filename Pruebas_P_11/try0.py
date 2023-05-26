@@ -5,7 +5,7 @@ lista=[]
 def fibonacci_inverso(n): #usaremos una lista, pa' honrar el trabajo anterior
     if (n - 1) <= 1:
         lista.insert(0,n-1) #en el index 0 va a poner número de elemento menos 1
-        return lista[0] #solo aplica para los default de la serie que son 0 y 1
+        return lista[0] #so{lo aplica para los default de la serie que son 0 y 1
     #no necesitamos un else 
     #print(fibonacci_inverso(n-1)) #perdoname compu
     #print(fibonacci_inverso(n-2))
