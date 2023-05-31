@@ -9,6 +9,8 @@ def merge(arr, l, m, r):
 
     #Se crean arreglos temporales
     #int L[n1], R[n2];
+    L=[]
+    R=[]
 
     #Copie datos en arreglos temporales L[] y R[]
     for i in range(0, n1, 1):
@@ -55,17 +57,17 @@ def mergeSort(arr, l, r):
 #Función para imprimir
 def printArray(A, size):
     for i in range (0, size, 1):
-        print(A[i]) #según yo si se puede, por qu elas listas tienen índices
+        print(A[i]) #según yo si se puede, por que las listas tienen índices
     print("\n")
 
 # Función main
 arr = [12, 11, 13, 5, 6, 7] #es una lista no un arreglo
 arr_size = 6
 
-print("El arreglo dado es: \n");
+print("El arreglo dado es: \n")
 printArray(arr, arr_size);
     
-mergeSort(arr, 0, arr_size - 1);
+mergeSort(arr, 0, arr_size - 1)
 
-print("\nEl arreglo ordenado es: \n");
-printArray(arr, arr_size);
+print("\nEl arreglo ordenado es: \n")
+printArray(arr, arr_size)

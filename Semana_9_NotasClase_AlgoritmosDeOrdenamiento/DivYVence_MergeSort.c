@@ -64,7 +64,7 @@ void mergeSort(int arr[], int l, int r)
     {
         // Igual que (l+r)/2, pero evita el desbordamiento para
         // grandes l y h
-        int m = l + (r - l) / 2;
+        int m = l + (r - l) / 2; //m=0+(5-1)/2
 
         // Ordenar la primera y la segunda mitad
         mergeSort(arr, l, m);
@@ -87,6 +87,7 @@ int main()
 {
     int arr[] = { 12, 11, 13, 5, 6, 7 };
     int arr_size = sizeof(arr) / sizeof(arr[0]);
+    printf("Hola %d\n", arr_size);
 
     printf("El arreglo dado es: \n");
     printArray(arr, arr_size);
