@@ -3,20 +3,20 @@
 #Fusiona dos subarreglos de arr[].
 #El primer subarray es arr [l..m]
 #El segundo subarray es arr [m + 1..r]
-def merge(arr, l, m, r):
+def merge(lista, l, m, r):
     n1 = m - l + 1
     n2 = r - m
 
     #Se crean arreglos temporales
     #int L[n1], R[n2];
-    L=[]
-    R=[]
+    Left=[]
+    Right=[]
 
     #Copie datos en arreglos temporales L[] y R[]
     for i in range(0, n1):
-        L.append(arr[l+i]) #dos formas
+        Left.append(lista[l+i]) #dos formas
     for j in range(0, n2):
-        R.insert(j, arr[m + 1 + j]) #dos formas
+        Right.insert(j, lista[m + 1 + j]) #dos formas
         
 
     #Se combinan los arreglos temporales de nuevo en arr[l..r]
@@ -24,51 +24,46 @@ def merge(arr, l, m, r):
     j = 0 #Índice inicial del segundo subarreglo
     k = l #Índice inicial del subarreglo combinado
     while i < n1 and j < n2:
-        if L[i] <= R[j]:
-            arr[k] = L[i]
+        if Left[i] <= Right[j]:
+            lista[k] = Left[i]
             i+=1
         else:
-            arr[k] = R[j]
+            lista[k] = Right[j]
             j+=1
         k+=1
 
     #Se copian los elementos restantes de L[], si hay alguno
     while i < n1:
-        arr[k] = L[i]
+        lista[k] = Left[i]
         i+=1
         k+=1
 
     #Se copian los elementos restantes de R[], si hay alguno
     while j < n2:
-        arr[k] = R[j]
+        lista[k] = Right[j]
         j+=1
         k+=1
 
 #l es para el índice izquierdo y r es el índice derecho del subarreglo de arr que se ordenará 
-def mergeSort(arr, l, r):
+def mergeSort(lista, l, r):
     if l < r:
         #Igual que (l+r)/2, pero evita el desbordamiento para grandes l y h
         m = l + (r - l) // 2 #hay que checar queno haya pez con la división
 
         #Ordenar la primera y la segunda mitad
-        mergeSort(arr, l, m)
-        mergeSort(arr, m + 1, r)
-        merge(arr, l, m, r)
+        mergeSort(lista, l, m)
+        mergeSort(lista, m + 1, r)
+        merge(lista, l, m, r)
 
-#Función para imprimir
-def printArray(A, size):
-    for i in range (0, size, 1):
-        print(A[i]) #según yo si se puede, por que las listas tienen índices
-    print("\n")
 
 # Función main
-arr = [12, 11, 13, 5, 6, 7] #es una lista no un arreglo
-arr_size = 6
+lista = [12, 11, 13, 5, 6, 7] #es una lista no un arreglo
+lista_size = 6
 
 print("El arreglo dado es: \n")
-printArray(arr, arr_size)
+print(lista)
     
-mergeSort(arr, 0, arr_size - 1)
+mergeSort(lista, 0, lista_size - 1)
 
-print("\nEl arreglo ordenado es: \n")
-printArray(arr, arr_size)
+print("\nEl arreglo ordenado de mayor a menor es: \n")
+print(lista)
