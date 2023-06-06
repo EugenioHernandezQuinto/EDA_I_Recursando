@@ -129,7 +129,7 @@ def menu_clientes():
         
         while True:
             codigo = input('\nAgrega los productos a tu lista (deja en blanco para terminar): ')
-            
+            #sería bueno imprimir qué productos existen
             if codigo == '':
                 break #rompe el ciclo while
             
