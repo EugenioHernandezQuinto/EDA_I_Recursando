@@ -11,24 +11,25 @@ def ordenar_por_nombre(item):
     print("item[1] es {}".format(item[1])) #como carajos sabe qué es item?
     return item[1] #articulos realmente se refiere a algun item
 
-def ordenar_por_codigo(item):
+def ordenar_por_codigo(item): #ya sé que pez, muy raro
     print("Entré 2")
     print("item[0] es {}".format(item[0]))
     return item[0]
 
 def ordenar_suministros(criterio):
 
-    items = list(inventario.items()) #inventario es un diccionario
-    print("dime qué soy ahora, creo que lista {}".format(items)) #ha de ser una lista de solo los items, sin kesy pues
-    #creo que convierte en lista algo, no sé exactamente qué
+    listasDeDiccionario = list(inventario.items()) #inventario es un diccionario
+    #print("dime qué soy ahora, creo que lista {}".format(items)) es una lista muy rara, son varias
+    #imprime esto [('gelatina', 'dgari'), ('leche', 'santa'), ('papel', 'petalos'), ('tortillas', 'noBrand'), ('lumus', 'laCosteña')]
+
 
     if criterio == 'nombre':
-        items = merge_sort(items, key = ordenar_por_nombre) #key significa que ha de haber varias
+        listasDeDiccionario = merge_sort(listasDeDiccionario, key = ordenar_por_nombre) #key significa que ha de haber varias
 
     elif criterio == 'codigo':
-        items = merge_sort(items, key = ordenar_por_codigo) #mira key podia ser declarada fuera, pero destalles.
+        listasDeDiccionario = merge_sort(listasDeDiccionario, key = ordenar_por_codigo) #mira key podia ser declarada fuera, pero destalles.
     
-    return [(k, v) for k, v in items] #must be a list, because of it[]
+    return [(k, v) for k, v in listasDeDiccionario] #must be a list, because of it[]
 
 def merge_sort(items, key): #i should undestand it but kinda refuse
     if len(items) <= 1:
@@ -56,7 +57,7 @@ def merge(left, right, key):
     return result
 
 #////////////////////////////////////////////////////////////////
-#criterio = 'coddigo'
+#criterio = 'codigo'
 criterio = 'nombre'
 ordenados = ordenar_suministros(criterio)
 
@@ -64,3 +65,4 @@ print("\n\n")
 for codigo, nombre in ordenados:
     print(f'{codigo} - {nombre}')
 #también se puede imprimir el diccionario en sí con print(diccionario), pero supongo que es presentación
+#hasta el momento confiamos en que el usuario nos dé algo valido como orden
