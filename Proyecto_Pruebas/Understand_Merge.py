@@ -7,28 +7,32 @@ inventario['lumus'] = 'laCosteña'
 
 
 def ordenar_por_nombre(item):
-    print("Entré 1")
-    print("item[1] es {}".format(item[1])) #como carajos sabe qué es item?
+    print("Entré 1\n")
+    print("Averiguando qué es item {}\n".format(item))
+    print("item[1] es {}\n".format(item[1])) #como carajos sabe qué es item?
     return item[1] #articulos realmente se refiere a algun item
 
 def ordenar_por_codigo(item): #ya sé que pez, muy raro
-    print("Entré 2")
-    print("item[0] es {}".format(item[0]))
+    print("Entré 2\n")
+    print("Averiguando qué es item {}\n".format(item))
+    print("item[0] es {}\n".format(item[0]))
     return item[0]
 
 def ordenar_suministros(criterio):
 
     listasDeDiccionario = list(inventario.items()) #inventario es un diccionario
-    #print("dime qué soy ahora, creo que lista {}".format(items)) es una lista muy rara, son varias
+    #print("dime qué soy ahora, creo que lista {}".format(listasDeDiccionario)) #es una lista de tuplas
     #imprime esto [('gelatina', 'dgari'), ('leche', 'santa'), ('papel', 'petalos'), ('tortillas', 'noBrand'), ('lumus', 'laCosteña')]
 
 
     if criterio == 'nombre':
         listasDeDiccionario = merge_sort(listasDeDiccionario, key = ordenar_por_nombre) #key significa que ha de haber varias
-
+        #lo que queremos es crear una lista con solo nombres(items)
+        print("soy una lista que solo debe contener nombres(items) {}".format(listasDeDiccionario))
     elif criterio == 'codigo':
         listasDeDiccionario = merge_sort(listasDeDiccionario, key = ordenar_por_codigo) #mira key podia ser declarada fuera, pero destalles.
-    
+        #lo que queremos es crear una lista con solo codigos(keys)
+        print("soy una lista que solo debe contener codigos(keys) {}".format(listasDeDiccionario))
     return [(k, v) for k, v in listasDeDiccionario] #must be a list, because of it[]
 
 def merge_sort(items, key): #i should undestand it but kinda refuse
@@ -59,9 +63,9 @@ def merge(left, right, key):
 #////////////////////////////////////////////////////////////////
 #criterio = 'codigo'
 criterio = 'nombre'
-ordenados = ordenar_suministros(criterio)
-
+ordenados = ordenar_suministros(criterio) #segun yo es una lista de tuplas
 print("\n\n")
+
 for codigo, nombre in ordenados:
     print(f'{codigo} - {nombre}')
 #también se puede imprimir el diccionario en sí con print(diccionario), pero supongo que es presentación
