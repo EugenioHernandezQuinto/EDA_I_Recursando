@@ -8,9 +8,9 @@ inventario['lumus'] = 'laCosteña'
 
 def ordenar_por_nombre(item):
     print("Entré 1\n")
-    print("Averiguando qué es item {}\n".format(item))
+    print("Averiguando qué es item {}\n".format(item))#item es una lista: ('gelatina' , 'dgari')
     print("item[1] es {}\n".format(item[1])) #como carajos sabe qué es item?
-    return item[1] #articulos realmente se refiere a algun item
+    return item[1] #articulos realmente se refiere a algun item #item[1] es dgari es el nombre/item, creo que lo que devuelve es tipo string
 
 def ordenar_por_codigo(item): #ya sé que pez, muy raro
     print("Entré 2\n")
@@ -26,11 +26,12 @@ def ordenar_suministros(criterio):
 
 
     if criterio == 'nombre':
-        listasDeDiccionario = merge_sort(listasDeDiccionario, key = ordenar_por_nombre) #key significa que ha de haber varias
+        listasDeDiccionario = merge_sort(listasDeDiccionario, ordenar_por_nombre) #key significa que ha de haber varias
         #lo que queremos es crear una lista con solo nombres(items)
-        print("soy una lista que solo debe contener nombres(items) {}".format(listasDeDiccionario))
+        #de cualquier forma, lo que devuelva ordenar_por_nombre lo pone en key. Cueiosamente, siento que no ejecuta prmero ordenar_por_nombre, sino merge_sort
+        print("soy una lista que solo debe contener nombres(items) {}".format(listasDeDiccionario)) #esta función no conoce key
     elif criterio == 'codigo':
-        listasDeDiccionario = merge_sort(listasDeDiccionario, key = ordenar_por_codigo) #mira key podia ser declarada fuera, pero destalles.
+        listasDeDiccionario = merge_sort(listasDeDiccionario, ordenar_por_codigo) #mira key podia ser declarada fuera, pero destalles.
         #lo que queremos es crear una lista con solo codigos(keys)
         print("soy una lista que solo debe contener codigos(keys) {}".format(listasDeDiccionario))
     return [(k, v) for k, v in listasDeDiccionario] #must be a list, because of it[]
@@ -69,4 +70,4 @@ print("\n\n")
 for codigo, nombre in ordenados:
     print(f'{codigo} - {nombre}')
 #también se puede imprimir el diccionario en sí con print(diccionario), pero supongo que es presentación
-#hasta el momento confiamos en que el usuario nos dé algo valido como orden
+#hasta el momento confiamos en que el usuario nos dé algo válido como orden
