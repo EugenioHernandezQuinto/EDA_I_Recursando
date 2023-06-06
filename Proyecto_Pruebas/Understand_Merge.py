@@ -8,7 +8,7 @@ inventario['lumus'] = 'laCosteña'
 
 def ordenar_por_nombre(item):
     print("Entré 1")
-    print("item[1] es {}".format(item[1]))
+    print("item[1] es {}".format(item[1])) #como carajos sabe qué es item?
     return item[1] #articulos realmente se refiere a algun item
 
 def ordenar_por_codigo(item):
@@ -19,6 +19,7 @@ def ordenar_por_codigo(item):
 def ordenar_suministros(criterio):
 
     items = list(inventario.items()) #inventario es un diccionario
+    print("dime qué soy ahora, creo que lista {}".format(items)) #ha de ser una lista de solo los items, sin kesy pues
     #creo que convierte en lista algo, no sé exactamente qué
 
     if criterio == 'nombre':
