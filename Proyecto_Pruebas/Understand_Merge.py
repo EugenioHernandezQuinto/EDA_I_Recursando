@@ -1,21 +1,31 @@
 inventario = {}
+inventario['gelatina'] = 'dgari'
+inventario['leche'] = 'santa'
+inventario['papel'] = 'petalos'
+inventario['tortillas'] = 'noBrand'
+inventario['lumus'] = 'laCosteña'
 
-def ordenar_por_nombre(articulo):
-    return articulo[1]
 
-def ordenar_por_codigo(articulo):
-    return articulo[0]
+def ordenar_por_nombre(item):
+    print("Entré 1")
+    print("item[1] es {}".format(item[1]))
+    return item[1] #articulos realmente se refiere a algun item
+
+def ordenar_por_codigo(item):
+    print("Entré 2")
+    print("item[0] es {}".format(item[0]))
+    return item[0]
 
 def ordenar_suministros(criterio):
 
-    articulos = list(inventario.items()) #inventario es un diccionario
+    items = list(inventario.items()) #inventario es un diccionario
     #creo que convierte en lista algo, no sé exactamente qué
 
     if criterio == 'nombre':
-        articulos = merge_sort(articulos, key = ordenar_por_nombre) #key significa que ha de haber varias
+        items = merge_sort(items, key = ordenar_por_nombre) #key significa que ha de haber varias
 
     elif criterio == 'codigo':
-        articulos = merge_sort(articulos, key = ordenar_por_codigo) #mira key podia ser declarada fuera, pero destalles.
+        items = merge_sort(items, key = ordenar_por_codigo) #mira key podia ser declarada fuera, pero destalles.
     
     return [(k, v) for k, v in items] #must be a list, because of it[]
 
@@ -24,8 +34,8 @@ def merge_sort(items, key): #i should undestand it but kinda refuse
         return items
     else:
         middle = len(items) // 2
-        left = items[:middle] #is kinda understandable, es como [middle] i think, is like one before middle
-        right = items[middle:]
+        left = items[: middle] #is kinda understandable, es como [middle] i think, is like one before middle
+        right = items[middle :]
         left = merge_sort(left, key)
         right = merge_sort(right, key)
         return merge(left, right, key)
@@ -45,8 +55,11 @@ def merge(left, right, key):
     return result
 
 #////////////////////////////////////////////////////////////////
-criterio = input('Ingresa en minúsculas y sin acentos el criterio de orden (nombre o codigo): ')
+#criterio = 'coddigo'
+criterio = 'nombre'
 ordenados = ordenar_suministros(criterio)
-        
+
+print("\n\n")
 for codigo, nombre in ordenados:
     print(f'{codigo} - {nombre}')
+#también se puede imprimir el diccionario en sí con print(diccionario), pero supongo que es presentación

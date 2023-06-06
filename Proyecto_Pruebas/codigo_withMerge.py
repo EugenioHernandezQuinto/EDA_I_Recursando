@@ -225,3 +225,7 @@ def menu_personal():
         menu_personal()
 
 menu()
+
+#aun no hay forma de regresar al menú principal
+#hay que ver si los códigos son números
+#hay que pedir la entrada de orden en minúsculas y sin acentos
